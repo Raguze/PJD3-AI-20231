@@ -9,7 +9,7 @@ namespace AI
     [RequireComponent(typeof(Rigidbody))]
     public class AgentController : MonoBehaviour
     {
-
+        
         [SerializeField]
         protected Rigidbody rb;
         [SerializeField]
