@@ -6,6 +6,8 @@ namespace AI
 {
     public interface IState
     {
+
+        StatePhase Phase { get; set; }
         string Name { get; }
         void Enter();
         void Update(float deltaTime);

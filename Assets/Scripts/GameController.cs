@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour
     {
         agent = FindObjectOfType<AgentController>();
 
+        var cameraController = FindObjectOfType<CameraController>();
+        cameraController.Target = agent.Tf;
+
         cam = Camera.main;
     }
 
@@ -28,13 +31,18 @@ public class GameController : MonoBehaviour
 
         Debug.DrawRay(ray.origin, ray.direction * 50, Color.red);
 
-        if(Input.GetMouseButtonDown(0))
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    RaycastHit hitInfo;
+        //    if (Physics.Raycast(ray, out hitInfo))
+        //    {
+        //        agent.MoveToPosition(hitInfo.point);
+        //    }
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            RaycastHit hitInfo;
-            if(Physics.Raycast(ray, out hitInfo))
-            {
-                agent.MoveToPosition(hitInfo.point);
-            }
+            agent.Fsm.StartFSM(BaseState.IDLE_STATE);
         }
     }
 

@@ -11,8 +11,9 @@ namespace AI
     {
         public const string IDLE_STATE = "IdleState";
         public const string WALK_STATE = "WalkState";
+        public const string PATROL_STATE = "PatrolState";
 
-        public StatePhase Phase;
+        public StatePhase Phase { get; set; }
         public AgentController Agent { get; protected set; }
         public Action<string> ChangeState { get; protected set; }
 
@@ -37,6 +38,11 @@ namespace AI
         public virtual void Update(float deltaTime)
         {
             throw new System.NotImplementedException();
+        }
+
+        public virtual void LogPhase(string msg = "")
+        {
+            Debug.Log($"{Name} {Phase} {msg}");
         }
     }
 }

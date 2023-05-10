@@ -231,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   nma: {fileID: 0}
+  fsm: {fileID: 0}
 --- !u!195 &6279081640944038576
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -315,7 +316,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d38ed25b4aede8c4fa790f125e50d436, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

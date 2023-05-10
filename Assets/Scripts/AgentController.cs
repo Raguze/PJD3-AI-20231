@@ -12,13 +12,25 @@ namespace AI
         
         [SerializeField]
         protected Rigidbody rb;
+
+        [SerializeField]
+        protected Transform tf;
+        public Transform Tf { get => tf; }
+
         [SerializeField]
         protected NavMeshAgent nma;
+        public NavMeshAgent Nma { get => nma; }
+
+        [SerializeField]
+        protected FSM fsm;
+        public FSM Fsm { get => fsm; }
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            tf = GetComponent<Transform>();
             nma = GetComponent<NavMeshAgent>();
+            fsm = gameObject.AddComponent<FSM>();
         }
 
         public void MoveToPosition(Vector3 pos)
