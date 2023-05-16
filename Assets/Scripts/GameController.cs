@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using AI;
 
 public class GameController : MonoBehaviour
@@ -11,7 +12,11 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        agent = FindObjectOfType<AgentController>();
+        agent = FindObjectsOfType<AgentController>()
+            .Where(a => !(a is PlayerController))
+            .ToArray()
+            [0]
+        ;
 
         var cameraController = FindObjectOfType<CameraController>();
         cameraController.Target = agent.Tf;

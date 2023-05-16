@@ -30,6 +30,11 @@ namespace AI
             rb = GetComponent<Rigidbody>();
             tf = GetComponent<Transform>();
             nma = GetComponent<NavMeshAgent>();
+            Init();
+        }
+
+        protected virtual void Init()
+        {
             fsm = gameObject.AddComponent<FSM>();
         }
 
