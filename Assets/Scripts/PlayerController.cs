@@ -5,11 +5,11 @@ using UnityEngine;
 namespace AI
 {
 
-    public class PlayerController : AgentController
+    public class PlayerController : BaseAgentController
     {
         protected override void Init()
         {
-            
+            nma.speed = 4f;
         }
     }
 

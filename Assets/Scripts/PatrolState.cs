@@ -22,7 +22,7 @@ namespace AI
 
         public Transform CurrentPoint { get => Points[CurrentIndexPoint]; }
 
-        public PatrolState(AgentController agent, Action<string> changeState, Transform[] points) : base(agent, changeState)
+        public PatrolState(BaseAgentController agent, Action<string> changeState, Transform[] points) : base(agent, changeState)
         {
             Points.AddRange(points);
         }

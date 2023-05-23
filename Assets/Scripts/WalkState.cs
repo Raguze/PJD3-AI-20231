@@ -9,7 +9,7 @@ namespace AI
     {
         public override string Name => BaseState.WALK_STATE;
 
-        public WalkState(AgentController agent, Action<string> changeState) : base(agent, changeState) { }
+        public WalkState(BaseAgentController agent, Action<string> changeState) : base(agent, changeState) { }
 
         public override void Enter()
         {

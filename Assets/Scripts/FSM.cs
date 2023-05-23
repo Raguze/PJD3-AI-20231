@@ -15,22 +15,27 @@ namespace AI
 
         private void Awake()
         {
-            IState state;
+            //IState state;
             
-            var agent = GetComponent<AgentController>();
+            //var agent = GetComponent<AgentController>();
 
-            state = new IdleState(agent,ChangeState);
-            states.Add(state.Name,state);
+            //state = new IdleState(agent,ChangeState);
+            //states.Add(state.Name,state);
 
-            state = new WalkState(agent,ChangeState);
-            states.Add(state.Name,state);
+            //state = new WalkState(agent,ChangeState);
+            //states.Add(state.Name,state);
 
-            var tfs = FindObjectsOfType<PatrolPoint>()
-                .Select(pp => pp.Tf)
-                .OrderBy(t => t.name)
-                .ToArray() ;
+            //var tfs = FindObjectsOfType<PatrolPoint>()
+            //    .Select(pp => pp.Tf)
+            //    .OrderBy(t => t.name)
+            //    .ToArray() ;
 
-            state = new PatrolState(agent, ChangeState, tfs);
+            //state = new PatrolState(agent, ChangeState, tfs);
+            //states.Add(state.Name, state);
+        }
+
+        public void AddState(IState state)
+        {
             states.Add(state.Name, state);
         }
 

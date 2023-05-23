@@ -12,12 +12,15 @@ namespace AI
         public const string IDLE_STATE = "IdleState";
         public const string WALK_STATE = "WalkState";
         public const string PATROL_STATE = "PatrolState";
+        public const string CHASE_STATE = "ChaseState";
+
+        public const float CHASE_DISTANCE = 16f;
 
         public StatePhase Phase { get; set; }
-        public AgentController Agent { get; protected set; }
+        public BaseAgentController Agent { get; protected set; }
         public Action<string> ChangeState { get; protected set; }
 
-        public BaseState(AgentController agent, Action<string> changeState)
+        public BaseState(BaseAgentController agent, Action<string> changeState)
         {
             Agent = agent;
             ChangeState = changeState;
@@ -43,6 +46,12 @@ namespace AI
         public virtual void LogPhase(string msg = "")
         {
             Debug.Log($"{Name} {Phase} {msg}");
+        }
+
+        public virtual bool CheckDistance()
+        {
+            var distance = GameController.Instance.DistanceBetweenAgents();
+            return distance <= CHASE_DISTANCE;
         }
     }
 }

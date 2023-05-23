@@ -7,14 +7,14 @@ namespace AI
 {
     public class IdleState : BaseState
     {
-        public IdleState(AgentController agent, Action<string> changeState ) : base(agent,changeState) { }
+        public IdleState(BaseAgentController agent, Action<string> changeState ) : base(agent,changeState) { }
 
         public override string Name => BaseState.IDLE_STATE;
 
         protected float duration;
         public override void Enter()
         {
-            duration = UnityEngine.Random.Range(1f, 2f);
+            duration = UnityEngine.Random.Range(10f, 20f);
             LogPhase(duration.ToString());
             //Debug.Break();
         }
@@ -29,6 +29,12 @@ namespace AI
         {
             duration -= deltaTime;
             LogPhase(duration.ToString());
+
+            if(CheckDistance())
+            {
+                ChangeState(BaseState.CHASE_STATE);
+            }
+
             if(duration <= 0)
             {
                 //ChangeState(BaseState.WALK_STATE);
