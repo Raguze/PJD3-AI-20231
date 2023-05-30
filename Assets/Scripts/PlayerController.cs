@@ -9,7 +9,7 @@ namespace AI
     {
         protected override void Init()
         {
-            nma.speed = 4f;
+            nma.speed = 5f;
         }
     }
 
